@@ -20,6 +20,8 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
         
         collectionView?.register(FeedCell.self, forCellWithReuseIdentifier: cellId ) //register the class
         
+        collectionView?.alwaysBounceVertical = true // cells bounce as you drag it
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -41,7 +43,7 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
 }
 
 class FeedCell: UICollectionViewCell{
-
+    
     override init(frame: CGRect) {
         
         super.init(frame: frame)
@@ -53,11 +55,26 @@ class FeedCell: UICollectionViewCell{
         fatalError("init(coder:) has not been implemented")
     }
     
+    let nameLabel: UILabel = {
+        
+        let label = UILabel()
+        label.text = "Sample Text"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+    return label
+    }()
+    
+    
+    
     
     func setupViews(){
-        
         backgroundColor = UIColor.white
-    
-    
+        addSubview(nameLabel)
+     addConstraints(NSLayoutConstraint.constraints(withVisualFormat:"H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel])) //
+     addConstraints(NSLayoutConstraint.constraints(withVisualFormat:"V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": nameLabel]))
+
+        
+        
+        
     }
 }
