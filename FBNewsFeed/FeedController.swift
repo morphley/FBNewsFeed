@@ -8,16 +8,26 @@
 
 import UIKit
 
+let cellId = "cellId"
+
 class FeedController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        view.backgroundColor = UIColor.blue
+      
+        navigationItem.title = "Facebook Feed"
+        collectionView?.backgroundColor = UIColor(white: 0.95, alpha: 1) // make it gray
+        
+       // collectionView?.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellWithReuseIdentifier: )
+        
     }
-
     
+//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return 3
+//    }
+//    
     
+  
     
     
 
