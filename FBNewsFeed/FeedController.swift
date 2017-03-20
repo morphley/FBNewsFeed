@@ -10,7 +10,7 @@ import UIKit
 
 let cellId = "cellId"
 
-class FeedController: UICollectionViewController {
+class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +33,11 @@ class FeedController: UICollectionViewController {
     }
     
     
+    // here we can specify the exact size of a cell
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 50)
+    }
 }
 
 class FeedCell: UICollectionViewCell{
